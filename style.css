@@ -1,0 +1,108 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url("1142.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.game-container {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.855);
+  padding: 3rem 2rem 2rem;
+  border-radius: 10px;
+
+  backdrop-filter: blur(7px);
+
+  transform: translateX(30%);
+}
+
+.strength-meter {
+  width: 44rem;
+  height: 20rem;
+  position: relative;
+  margin: 2rem auto;
+}
+
+.needle {
+  position: absolute;
+  width: 4px;
+  height: 15rem;
+  background: #533b4d;
+  left: 50%;
+  bottom: 10%;
+  transform-origin: bottom center;
+  transform: rotate(0deg);
+  
+}
+
+.hammer {
+  position: absolute;
+  left: 10rem;
+  width: 300px;
+  top: 25rem;
+}
+.hammer img {
+  width: 100%;
+  height: auto;
+}
+
+.scorep1 {
+  margin-top: 1rem;
+  font-size: 3rem;
+  font-weight: bold;
+  font-family: "Righteous", cursive;
+}
+
+.game-mode {
+  margin-top: 1rem;
+}
+
+.game-mode button {
+  margin: 0 0.5rem;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(45deg, #ff4081, #ff6b6b);
+  color: white;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  font-size: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.game-mode button:hover {
+  background: linear-gradient(45deg, #ff6b6b, #ff4081);
+  transform: translateY(-2px);
+}
+
+h1 {
+  color: #ff4081;
+  margin-bottom: 2rem;
+  font-size: 3.5rem;
+  position: relative;
+  z-index: 10;
+  font-family: "Righteous", cursive;
+}
+
+#resetbtn {
+    padding: 10px 20px;
+    margin: 15px auto;  
+    display: block;
+    background-color: #533b4d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+
+

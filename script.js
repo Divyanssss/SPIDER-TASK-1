@@ -10,12 +10,14 @@ function gamestart(gamemode) {
 }
 
 let swing = false;
+let hammerswing = false;
 let angle = 0;
 let speed = 0.3;
 let mode = 0;
 let turn = 0;
 let player1score = 0;
 let player2score = 0;
+let hammerangle = 130;
 function startoneplayer() {
   mode = 1;
   swing = true;
@@ -55,14 +57,14 @@ document.addEventListener("keydown", function (event) {
 });
 
 function score() {
+  hammerswing = true;
+  hammeranimation();
   const currscore = Math.round((10 / 9) * Math.abs(90 - Math.abs(angle)));
 
   if (mode == 2) {
     if (turn == 0) {
       player1score = currscore;
-      document.getElementById(
-        "score1"
-      ).textContent = `Player 1: ${currscore}`;
+      document.getElementById("score1").textContent = `Player 1: ${currscore}`;
       turn = 1;
 
       setTimeout(() => {
@@ -70,6 +72,9 @@ function score() {
         swing = true;
         angle = 0;
         speed = 0.3;
+        document.querySelector(".hammer").style.transform = `rotate(130deg)`;
+        hammerangle = 130;
+        hammeranimation();
         animate();
       }, 1500);
     } else {
@@ -99,12 +104,31 @@ function resetgame() {
   angle = 0;
   speed = 0.3;
   turn = 0;
+  hammerswing = false;
+  hammerangle = 130;
 
   document.querySelector(".needle").style.transform = `rotate(0deg)`;
   document.querySelector(".game-mode").style.display = "block";
   document.getElementById("score1").textContent = "0";
   document.getElementById("resetbtn").style.display = "none";
+  document.querySelector(".hammer").style.transform = `rotate(130deg)`;
+
   mode = 0;
 
   cancelAnimationFrame(animate);
+}
+
+function hammeranimation() {
+  if (!hammerswing) {
+    return;
+  }
+  if (hammerangle <= 0) {
+    hammerswing = false;
+    document.querySelector(".hammer").style.transform = `rotate(130deg)`;
+  }
+  const hammer = document.querySelector(".hammer");
+
+  hammer.style.transform = `rotate(${hammerangle}deg)`;
+  hammerangle = hammerangle - 1.2;
+  requestAnimationFrame(hammeranimation);
 }

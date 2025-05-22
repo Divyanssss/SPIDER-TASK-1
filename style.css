@@ -48,9 +48,10 @@ body {
 
 .hammer {
   position: absolute;
-  left: 10rem;
+  left: 20rem;
   width: 300px;
   top: 25rem;
+  transform: rotate(130deg);
 }
 .hammer img {
   width: 100%;
@@ -105,6 +106,7 @@ h1 {
 
     display: none;
 }
+
 
 
 

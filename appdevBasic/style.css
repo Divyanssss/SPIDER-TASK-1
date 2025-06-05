@@ -48,9 +48,9 @@ body {
 
 .hammer {
   position: absolute;
-  left: 20rem;
+  left: 18rem;
   width: 300px;
-  top: 25rem;
+  top: 28rem;
   transform: rotate(130deg);
 }
 .hammer img {
@@ -105,6 +105,23 @@ h1 {
     font-size: 16px;
 
     display: none;
+}
+.obj{
+  position: absolute;
+  
+  left: 5rem;
+  z-index: -3;
+}
+.line {
+  position: absolute;
+  height: 29rem;
+  width: 14px;
+  left: 18.5rem;
+  background-color: #099e60 ;
+  bottom: 6.6rem;
+  display: none;
+
+  border: #030300 4px solid;
 }
 
 

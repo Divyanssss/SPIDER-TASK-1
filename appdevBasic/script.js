@@ -18,10 +18,14 @@ let turn = 0;
 let player1score = 0;
 let player2score = 0;
 let hammerangle = 130;
+let scorelineheight = document.querySelector(".line").style.height;
 function startoneplayer() {
   mode = 1;
   swing = true;
   angle = 0;
+  document.querySelector(".line").style.height=`${scorelineheight}px`;
+  document.querySelector(".line").style.display = "none";
+
   animate();
 }
 function startwoplayer() {
@@ -55,11 +59,11 @@ document.addEventListener("keydown", function (event) {
     score();
   }
 });
-
+let currscore = 0;
 function score() {
   hammerswing = true;
   hammeranimation();
-  const currscore = Math.round((10 / 9) * Math.abs(90 - Math.abs(angle)));
+   currscore = Math.round((10 / 9) * Math.abs(90 - Math.abs(angle)));
 
   if (mode == 2) {
     if (turn == 0) {
@@ -74,6 +78,7 @@ function score() {
         speed = 0.3;
         document.querySelector(".hammer").style.transform = `rotate(130deg)`;
         hammerangle = 130;
+       
         hammeranimation();
         animate();
       }, 1500);
@@ -120,15 +125,43 @@ function resetgame() {
 
 function hammeranimation() {
   if (!hammerswing) {
+    
     return;
   }
   if (hammerangle <= 0) {
     hammerswing = false;
+    scoreline(currscore);
     document.querySelector(".hammer").style.transform = `rotate(130deg)`;
+    
   }
   const hammer = document.querySelector(".hammer");
 
   hammer.style.transform = `rotate(${hammerangle}deg)`;
-  hammerangle = hammerangle - 1.2;
+  hammerangle = hammerangle - 1.6;
   requestAnimationFrame(hammeranimation);
+}
+
+function scoreline(score) {
+
+  let scoreline = document.querySelector(".line");
+  scoreline.style.display = "block";
+  scoreline.style.transition = "height 0.5s ease-in-out";
+  scoreline.style.height = "0";
+  
+    setTimeout(() => {
+        scoreline.style.transition = "height 1s ease-out";
+        const finalHeight = `${28.5 * score/100}rem`;
+        scoreline.style.height = finalHeight;
+        setTimeout(() => {
+    scoreline.style.display = "none";
+
+  }, 2000);
+
+    }, 50);
+
+  
+  
+
+ 
+
 }

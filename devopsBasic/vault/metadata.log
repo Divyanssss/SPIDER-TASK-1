@@ -1,0 +1,17 @@
+Filename: testfolder/test.env
+Owner-name: divyansh
+Permissions: -rwxrwxrwx
+ACL:
+user::rwx
+group::rwx
+other::rwx
+Extended Attributes:
+
+no of valid lines: 2
+no of Invalid lines: 5
+Rejected lines:
+ - PASSWORD = secret123
+ - SERVER-NAME=web01
+ - PATH=$PATH:/tmp
+ - LOG_LEVEL= info 
+
